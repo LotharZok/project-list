@@ -1,0 +1,29 @@
+<mat-card>
+    <mat-card-content>
+        <table class="projectTable">
+            <tr>
+                <th>Name</th>
+                <th>Duration</th>
+                <th>Difficulty</th>
+                <th>Skills</th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let project of allProjects" [routerLink]="['/project/' + project.id]">
+                <td>{{ project.name }}</td>
+                <td>{{ project.duration }} days</td>
+                <td>{{ project.difficulty }}</td>
+                <td><span *ngFor="let s of project.skills; last as last">
+                    <span *ngIf="!last">{{ s }} &bullet; </span>
+                    <span *ngIf="last">{{ s }}</span>
+                </span></td>
+                <td><mat-icon matListItemIcon class="listIcon" (click)="deleteProject(project.id)">delete</mat-icon></td>
+            </tr>
+        </table>
+    </mat-card-content>
+</mat-card>
+
+
+<button mat-fab color="primary" class="add-project-btn" matTooltip="Add Project" [matTooltipPosition]="'above'" (click)="addProjectDialog()">
+    <!-- Hinweis: Die Position des Tooltips muss mit "'...'" angegeben werden (Doppeltes Hochkomma, einfaches Hochkomma) -->
+    <mat-icon>playlist_add</mat-icon>
+</button>

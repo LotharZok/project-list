@@ -1,0 +1,39 @@
+<mat-card class="profile-detail-header">
+    <div class="profile-header">
+        <h2>{{ curProject.name }}</h2>
+    </div>
+</mat-card>
+
+<mat-card class="mt-32">
+    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="addressMenu">
+        <!-- Hinweis: Das "menu" beim Trigger bezieht sich auf den Punkt #menu beim <mat-menu> etwas weiter unten -->
+        <mat-icon>more_horiz</mat-icon>
+    </button>
+    <mat-menu #addressMenu="matMenu">
+        <button mat-menu-item (click)="editProject()">Edit</button>
+    </mat-menu>
+
+    <mat-card-title class="mt-8 ml-16">
+        {{ curProject.name }}
+    </mat-card-title>
+    <mat-card-content class="mt-8">
+        <table>
+            <tr>
+                <td><b>Duration</b></td>
+                <td>{{ curProject.duration }} days</td>
+            </tr>
+            <tr>
+                <td><b>Difficulty</b></td>
+                <td>{{ curProject.difficulty }}</td>
+            </tr>
+            <tr>
+                <td><b>Skills</b></td>
+                <!-- <td>{{ curProject.skills }}</td> -->
+                <td><span *ngFor="let s of curProject.skills; last as last">
+                    <span *ngIf="!last">{{ s }} &bullet; </span>
+                    <span *ngIf="last">{{ s }}</span>
+                </span></td>
+            </tr>
+        </table>
+    </mat-card-content>
+</mat-card>

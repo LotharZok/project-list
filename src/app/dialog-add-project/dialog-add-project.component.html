@@ -1,0 +1,44 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+<h1 mat-dialog-title>Add Project</h1>
+<div mat-dialog-content>
+    <div class="pt-5">
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Project Name</mat-label>
+            <input [(ngModel)]="newName" [disabled]="loading" matInput placeholder="Project Name ...">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Duration in days</mat-label>
+            <input type="number" [(ngModel)]="newDuration" [disabled]="loading" matInput
+                placeholder="Duration in days ...">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Difficulty</mat-label>
+            <mat-select [(ngModel)]="newDifficulty">
+                <mat-option *ngFor="let diff of difficulties" [value]="diff">
+                    {{diff}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Skills used</mat-label>
+            <mat-select multiple [(ngModel)]="newSkills">
+                <mat-option *ngFor="let skill of selectskills" [value]="skill">
+                    {{skill}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [disabled]="loading" (click)="cancelEdit()">Cancel</button>
+    <button mat-button [disabled]="loading" (click)="saveProject()" [mat-dialog-close]="" cdkFocusInitial>Save</button>
+</div>

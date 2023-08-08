@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "lz-project-list": {
+      "hosting": {
+        "project-list": [
+          "lz-project-list"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "lz-project-list"
+  }
+}

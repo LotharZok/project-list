@@ -1,0 +1,28 @@
+.profile-detail-header {
+    min-height: 100px;
+    background-color: #FFC05C;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.profile-header {
+    margin-left: 32px;
+
+    h2 {
+        margin-bottom: 32px;
+        font-size: 32px;
+        font-weight: bold;
+    }
+}
+
+.pin-right-upper-corner {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+td {
+    padding-left: 8px;
+}
